@@ -1,0 +1,81 @@
+= Pinebook Pro Fedora Installer Container
+Jordan Williams <jordan@jwillikers.com>
+:experimental:
+:icons: font
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+:Buildah: https://buildah.io/[Buildah]
+:fish: https://fishshell.com/[fish]
+:Podman: https://podman.io/[Podman]
+
+A {Buildah} script for creating a container image to run the https://github.com/bengtfredh/pinebook-pro-fedora-installer[pinebook-pro-fedora-installer] script for installing Fedora on the Pinebook Pro.
+
+== Getting Started
+
+The instructions below can be used on Fedora to create the image and run it locally.
+
+. Install {Buildah}, {fish}, Git, and {Podman}.
++
+[source,sh]
+----
+➜ sudo dnf -y install buildah fish git podman
+----
+
+. Clone this repository.
++
+[source,sh]
+----
+➜ git clone https://github.com/jwillikers/pinebook-pro-fedora-installer-image.git
+----
+
+. Execute the script to create the container image locally.
++
+[source,sh]
+----
+➜ sudo fish pinebook-pro-fedora-installer-image/pinebook-pro-fedora-installer.fish
+----
+
+. Now just run the container, being sure to bind mount `/dev` so that the script has access to the target device. 
++
+[source,sh]
+----
+➜ sudo podman run --privileged -v /dev:/dev -it localhost/pinebook-pro-fedora-installer
+----
+
+== Contributing
+
+Contributions in the form of issues, feedback, and even pull requests are welcome.
+Make sure to adhere to the project's link:CODE_OF_CONDUCT.adoc[Code of Conduct].
+
+== Open Source Software
+
+This project is built on the hard work of countless open source contributors.
+Several of these projects are enumerated below.
+
+* https://asciidoctor.org/[Asciidoctor]
+* {Buildah}
+* https://getfedora.org/[Fedora]
+* {fish}
+* https://git-scm.com/[Git]
+* https://www.linuxfoundation.org/[Linux]
+* https://github.com/bengtfredh/pinebook-pro-fedora-installer[pinebook-pro-fedora-installer]
+* {Podman}
+
+== Code of Conduct
+
+The project's Code of Conduct is available in the link:CODE_OF_CONDUCT.adoc[Code of Conduct] file.
+
+== License
+
+This repository is licensed under the https://www.gnu.org/licenses/gpl-3.0.html[GPLv3], available in the link:LICENSE.adoc[license file].
+
+© 2021 Jordan Williams
+
+== Authors
+
+mailto:{email}[{author}]
