@@ -7,3 +7,5 @@ buildah run $name git clone https://github.com/bengtfredh/pinebook-pro-fedora-in
 buildah config --entrypoint "/usr/bin/bash /root/pinebook-pro-fedora-installer/fedora-installer" $name
 
 buildah commit $name pinebook-pro-fedora-installer
+
+buildah rm $name
