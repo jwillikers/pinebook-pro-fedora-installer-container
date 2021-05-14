@@ -30,14 +30,14 @@ The instructions below can be used on Fedora to create the image and run it loca
 +
 [source,sh]
 ----
-➜ git clone https://github.com/jwillikers/pinebook-pro-fedora-installer-image.git
+➜ git clone https://github.com/jwillikers/pinebook-pro-fedora-installer-container.git
 ----
 
 . Execute the script to create the container image locally.
 +
 [source,sh]
 ----
-➜ sudo fish pinebook-pro-fedora-installer-image/pinebook-pro-fedora-installer.fish
+➜ sudo fish pinebook-pro-fedora-installer-container/pinebook-pro-fedora-installer.fish
 ----
 
 . Now just run the container, being sure to bind mount `/dev` so that the script has access to the target device. 
